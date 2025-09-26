@@ -1,4 +1,4 @@
-![Schematic][./images/bcdtexsche.png]
+![Schematic](./images/bcdtexsche.png)
 **Code**
 ```
 module Code(input  wire [3:0] bcd,
@@ -41,3 +41,4 @@ module Testbench(
     end    
 endmodule
 ```
+![Schematic](./images/bcdtexT.png)
