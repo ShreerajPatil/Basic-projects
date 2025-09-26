@@ -1,4 +1,6 @@
 ![Schematic](./images/4bitsche.png)
+
+
 **Code**
 ```
 module Code(
