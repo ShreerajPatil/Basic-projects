@@ -1,4 +1,5 @@
-**Digital Logic Design & Combinational Circuits**
+Digital Logic Design & Combinational Circuits
+---
 
 This repository contains a collection of fundamental digital logic circuits, designed and implemented to showcase core concepts in digital electronics. These projects serve as practical exercises for understanding combinational logic, arithmetic circuits, and code conversion techniques.
 
@@ -51,3 +52,65 @@ Hardware Description Languages (HDLs): Verilog.
 Simulation Software: Vivado.
 
 Logic Families: Implemented using standard logic gates (AND, OR, NOT, XOR).
+
+How to Use the Code
+---
+
+The files in this repository are provided as templates. To use them in your own projects, you will need to rename the modules to match your file names.
+
+**Design Code**
+
+This is the Verilog code for the BCD to Excess-3 Converter.
+```
+module Code(input  wire [3:0] bcd,
+    output wire [3:0] ex3  
+);
+    assign ex3[3] = bcd[3] | (bcd[2] & (bcd[1] | bcd[0]));
+    assign ex3[2] = (bcd[2] & ~bcd[1] & ~bcd[0]) | (~bcd[2] & (bcd[1] | bcd[0]));
+    assign ex3[1] = ~ (bcd[1] ^ bcd[0]);
+    assign ex3[0] = ~bcd[0];
+endmodule
+```
+**To Use This Code:**
+
+Replace 'Code' with the name of your Verilog file (e.g., bcd_to_excess3_converter).
+
+**Testbench Code**
+
+This is the testbench used to verify the BCD to Excess-3 converter.
+```
+module Testbench(
+    );
+    reg [0:3]bcd;
+    wire [0:3]ex3;
+    Code dut(.bcd(bcd), 
+		.ex3(ex3));
+    initial
+    begin
+    #10
+    bcd=0;   
+    #10
+    bcd=1;    
+    #10
+    bcd=2;    
+    #10
+    bcd=3;    
+    #10
+    bcd=4;    
+    #10
+    bcd=5;    
+    #10
+    bcd=6;    
+    #10
+    bcd=7;    
+    #10  
+    $finish;
+    end    
+endmodule
+```
+
+**To Use This Testbench:**
+
+Replace Testbench with the name of your testbench file (e.g., tb_bcd_to_excess3).
+
+On the line Code dut(.bcd(bcd), .ex3(ex3));, replace Code with the module name from your design file (e.g., bcd_to_excess3_converter). This connects the testbench to your converter module.
