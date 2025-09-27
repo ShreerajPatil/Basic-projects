@@ -20,7 +20,8 @@ Full-Subtractor
 
 Full-Adder
 
-Project Details
+**Project Details**
+
 **4-Bit Square Circuit**
 
 A combinational logic circuit designed to compute the square of a 4-bit binary input. The circuit takes a 4-bit number (N) and produces an 8-bit binary output equal to N².
